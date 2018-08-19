@@ -35,8 +35,8 @@
   - name: give user ownership of repo
     file:
       path: "/home/{{ username  }}/rhte-networking-solution"
-      owner: :{{ username }}"
-      group: :{{ username }}"
+      owner: "{{ username }}"
+      group: "{{ username }}"
       recurse: true
 
   - name: remove users ansible.cfg
