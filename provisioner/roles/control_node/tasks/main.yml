@@ -44,18 +44,6 @@
     owner: "{{ username }}"
     group: "{{ username }}"
 
-    #- name: tok Install ansible.cfg as global
-    #  template:
-    #    src: ansible.cfg.j2
-    #    dest: "/etc/ansible/ansible.cfg"
-    #    owner: root
-    #
-    #- name: tok move students ansible hosts to global
-    #  copy: 
-    #    remote_src: True 
-    #    src: "/home/{{ username }}/networking-workshop/lab_inventory/hosts"
-    #    dest: /etc/ansible/hosts
-    
 - name: Install vimrc in home directory
   template:
     src: vimrc.j2
