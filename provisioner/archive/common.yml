@@ -1,0 +1,8 @@
+---
+
+- name: prepare base systems
+  hosts: all
+  become: true
+
+  roles:
+  - common

@@ -1,0 +1,12 @@
+- name: import rhte common playbook
+  hosts: control_nodes,lab_hosts
+  become: yes
+  gather_facts: false
+
+  tasks:
+
+  - name: install git
+    yum:
+      name: git
+      state: present
+

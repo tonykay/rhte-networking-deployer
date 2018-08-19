@@ -1,0 +1,15 @@
+---
+- name: common playbook
+  import_playbook: common.yml
+  tags:
+    - common  
+
+- name: flask playbook
+  import_playbook: flask.yml
+  tags:
+    - flask
+
+- name: postgres playbook
+  import_playbook: postgres.yml
+  tags:
+    - postgres

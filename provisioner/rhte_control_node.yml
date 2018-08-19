@@ -1,0 +1,47 @@
+- name: import contrl node playbook
+  hosts: control_nodes
+  become: true
+  gather_facts: false
+
+  vars:
+    - flask_repo: https://github.com/tonykay/flask-ansible-lab.git
+    - solution_repo: https://github.com/tonykay/rhte-networking-solution.git
+    - app_name: flask-app 
+    - packages:
+      - python-pip
+      - postgresql
+      - git
+
+  tasks:
+
+  - name: additional base packages
+    package:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ packages }}" 
+
+  - name: clone flask source code`
+    git:
+      repo: "{{ flask_repo }}"
+      dest: "/opt/{{ app_name }}"
+      update: yes  
+
+  - name: clone solution into user directory
+    git:
+      repo: "{{ solution_repo }}"
+      dest: "/home/{{ username  }}/rhte-networking-solution"
+      update: yes  
+
+  - name: install flask application requirements
+    pip:
+      requirements: "/opt/{{ app_name }}/requirements.txt"
+
+      #  - name: template systemd service config
+      #    copy:
+      #      src: .service
+      #      dest: /etc/systemd/system/{{ app_name }}.service
+      #
+      #
+      #                            - name: start systemd app service
+      #                                  systemd: name={{ app_name }}.service
+      #                                  state=restarted enabled=yes

@@ -1,0 +1,9 @@
+; {{ ansible_managed }}
+
+{% for item in groups" %}
+
+[{{item}}]
+{%   for entry in groups[item]  %}
+{{ entry }} ansible_host={{ entry.ipv4.address }}
+{%   endfor %}
+{% endfor %}

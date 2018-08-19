@@ -1,0 +1,20 @@
+== RHTE Networking Lab notes
+
+=== Current status
+
+* Deploys
+* control_node is addressable
+* host1 is addressable
+
+*  Forked linklight commit bb4a31986948d75ac6171e792022e84c1fcabdd9
+** Already additions to provisioner for flask/postgres. early days
+
+
+Based on linklight:
+
+commit bb4a31986948d75ac6171e792022e84c1fcabdd9
+Author: ipvsean <sean@cavanaugh.pro>
+Date:   Fri Aug 10 12:28:20 2018 -0400
+
+    cleaning up readme files
+

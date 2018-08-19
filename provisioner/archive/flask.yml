@@ -1,0 +1,32 @@
+---
+    
+- name: deploy flask infrastructure
+  hosts: flasks
+  gather_facts: false
+  become: true
+
+  vars:
+    - flask_repo: https://github.com/tonykay/flask-ansible-lab.git
+    - packages:
+      - python-pip
+      - postgresql
+      - git
+
+  tasks:
+
+  - name: additional base packages
+    package:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ packages }}" 
+
+  - name: clone flask source code`
+    git:
+      repo: "{{ flask_repo }}"
+      dest: /opt/flask-app
+      update: yes  
+
+  - name: install modules in a virtualenv
+    pip:
+      requirements: /opt/flask-app/requirements.txt
+

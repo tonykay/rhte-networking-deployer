@@ -1,0 +1,13 @@
+---
+- name: deploy postgres 
+  hosts: databases
+  become: true
+
+  tasks:
+
+  - name: placeholder for postgres
+    debug:
+      msg: postgres config starts here
+
+  roles:
+  - {name: geerlingguy.postgresql, tags: [postgres]}

@@ -1,0 +1,15 @@
+- name: import lab_hosts playbook
+  hosts: lab_hosts
+  become: yes
+  gather_facts: false
+
+  tasks:
+
+  - name: placeholder for postgres
+    debug:
+      msg: postgres config starts here
+
+  roles:
+
+  - {name: webservers, tags: [webservers]}
+  - {name: geerlingguy.postgresql, tags: [postgres]}
