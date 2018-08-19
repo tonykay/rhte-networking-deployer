@@ -32,6 +32,11 @@
       dest: "/home/{{ username  }}/rhte-networking-solution"
       update: yes  
 
+  - name: remove users ansible.cfg
+    file:
+      path: "/home/{{ username }}/.ansible.cfg"
+      state: absent
+
   - name: install flask application requirements
     pip:
       requirements: "/opt/{{ app_name }}/requirements.txt"
