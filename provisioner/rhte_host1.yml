@@ -12,4 +12,4 @@
   roles:
 
   - {name: webservers, tags: [webservers]}
-  - {name: geerlingguy.postgresql, tags: [postgres]}
+    #  - {name: geerlingguy.postgresql, tags: [postgres]}
