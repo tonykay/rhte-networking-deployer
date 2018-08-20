@@ -48,12 +48,6 @@
     pip:
       requirements: "/opt/{{ app_name }}/requirements.txt"
 
-      #  - name: template systemd service config
-      #    copy:
-      #      src: .service
-      #      dest: /etc/systemd/system/{{ app_name }}.service
-      #
-      #
-      #                            - name: start systemd app service
-      #                                  systemd: name={{ app_name }}.service
-      #                                  state=restarted enabled=yes
+  - name: output student login message    
+    debug:
+      msg: "Student login: {{ username }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
