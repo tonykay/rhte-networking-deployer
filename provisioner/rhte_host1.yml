@@ -9,7 +9,13 @@
     debug:
       msg: postgres config starts here
 
-  roles:
+  - name: copy over webserver images
+    copy:
+      src: files/seagull.png 
+      dest: /var/www/html
+      mode: 0644
+
+    roles:
 
   - {name: webservers, tags: [webservers]}
     #  - {name: geerlingguy.postgresql, tags: [postgres]}
