@@ -1,7 +1,8 @@
 - name: import lab_hosts playbook
-  hosts: lab_hosts
+  hosts: cisco
   become: yes
   gather_facts: false
+  connection: network_cli
 
   tasks:
 
