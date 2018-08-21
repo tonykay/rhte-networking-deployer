@@ -20,11 +20,11 @@
       state: present
     loop: "{{ packages }}" 
 
-  - name: clone flask source code`
-    git:
-      repo: "{{ flask_repo }}"
-      dest: "/opt/{{ app_name }}"
-      update: yes  
+    #  - name: clone flask source code`
+    #    git:
+    #      repo: "{{ flask_repo }}"
+    #      dest: "/opt/{{ app_name }}"
+    #      update: yes  
 
   - name: clone solution into user directory
     git:
@@ -44,9 +44,13 @@
       path: "/home/{{ username }}/.ansible.cfg"
       state: absent
 
-  - name: install flask application requirements
-    pip:
-      requirements: "/opt/{{ app_name }}/requirements.txt"
+  - name: hack the banners
+    command: "ansible-playbook /home/{{ username }}/rhte-networking-solution/banner/banner.yml"
+
+
+      #- name: install flask application requirements
+      #pip:
+      #requirements: "/opt/{{ app_name }}/requirements.txt"
 
   - name: output student login message    
     debug:
