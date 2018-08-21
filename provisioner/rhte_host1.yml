@@ -15,7 +15,7 @@
       dest: /var/www/html
       mode: 0644
 
-    roles:
+  roles:
 
-  - {name: webservers, tags: [webservers]}
+  - { name: webservers, tags: [webservers] }
     #  - {name: geerlingguy.postgresql, tags: [postgres]}
