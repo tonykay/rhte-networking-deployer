@@ -54,7 +54,7 @@
 
   - name: output student login message    
     debug:
-      msg: "STUDENT LOGIN: {{ username }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+      msg: "user.info: {{ username }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
   roles:
     - haproxy    
