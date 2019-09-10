@@ -11,16 +11,16 @@
     repo: https://github.com/network-automation/linklight.git
     force: yes
 
-- name: for networking modes
-  block:
-    - name: Move networking workshop folder to correct location  (NETWORKING MODE)
-      command: cp -r /tmp/linklight/exercises/networking/ /home/{{ username }}/networking-workshop
-      when: special is not defined
-
-    - name: Move networking workshop folder to correct location  (NETWORKING MODE SPECIAL)
-      command: cp -r /tmp/linklight/exercises/networking_v2/ /home/{{ username }}/networking-workshop
-      when: special is defined
-  when: networking
+#- name: for networking modes
+#  block:
+#    - name: Move networking workshop folder to correct location  (NETWORKING MODE)
+#      command: cp -r /tmp/linklight/exercises/networking/ /home/{{ username }}/networking-workshop
+#      when: special is not defined
+#
+#    - name: Move networking workshop folder to correct location  (NETWORKING MODE SPECIAL)
+#      command: cp -r /tmp/linklight/exercises/networking_v2/ /home/{{ username }}/networking-workshop
+#      when: special is defined
+#  when: networking
 
 # waiting on https://github.com/ansible/ansible/pull/41222
 # - name: Move networking workshop folder to correct location  (F5 MODE)
@@ -114,5 +114,5 @@
     owner: "{{ username }}"
     group: "{{ username }}"
 
-- name: Move original networking lab out of user homedir
-  shell: mv /home/{{ username }}/networking-workshop /tmp
+    # - name: Move original networking lab out of user homedir
+    # shell: mv /home/{{ username }}/networking-workshop /tmp

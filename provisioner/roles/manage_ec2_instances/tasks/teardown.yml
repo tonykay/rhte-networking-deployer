@@ -2,13 +2,13 @@
   ec2_instance_facts:
     region: "{{ ec2_region }}"
     filters:
-      instance-state-name: running
+      #      instance-state-name: running # This breaks teardown, key looks wrong?
       "tag:Workshop": "{{ec2_name_prefix}}"
   register: all_workshop_nodes
 
-# - name: debug test
-#   debug:
-#     var: all_workshop_nodes
+- name: debug test
+  debug:
+    var: all_workshop_nodes
 
 - name: destroy EC2 instances
   ec2:
@@ -159,11 +159,12 @@
     route_table_id: "{{item.id}}"
     lookup: id
     state: absent
+  ignore_errors: yes
   with_items: "{{route_table_facts2.route_tables}}"
   when:
     - networking
     - vpc_net_facts2.vpcs|length > 0
-    - item.associations == []
+    # - item.associations == []
 
 - name: set keys for instance creation dynamically since key was not supplied by user
   set_fact:

@@ -44,8 +44,9 @@
       path: "/home/{{ username }}/.ansible.cfg"
       state: absent
 
-  - name: hack the banners
-    command: "ansible-playbook /home/{{ username }}/rhte-networking-solution/banner/banner.yml"
+      #- name: hack the banners
+      # command: "ansible-playbook /home/{{ username }}/rhte-networking-solution/banner/banner.yml"
+      # issue with banner
 
 
       #- name: install flask application requirements
